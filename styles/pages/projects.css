@@ -1,0 +1,10 @@
+.project-technology {
+    padding: .5rem 1rem;
+}
+
+@media (min-width: 48em) and (max-width: 64em) {
+    .project-technology {
+        padding: .25rem .5rem;
+        font-size: var(--fs-200);
+    }
+}

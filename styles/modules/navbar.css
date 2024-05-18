@@ -1,0 +1,130 @@
+.nav-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-900);
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--size-900);
+}
+
+.mobile-nav-toggle {
+    display: none;
+}
+
+.mobile-nav-toggle .icon-close {
+    display: none;
+}
+
+.nav-list a{
+    font-size: var(--fs-nav);
+    color: var(--clr-primary-700);
+}
+
+.nav-list .list-item {
+    transition: .5s ease-in-out;
+}
+
+.nav-list .list-item a{
+    margin-bottom: var(--size-500);
+    display: flex;
+    align-items: center;
+}
+
+.nav-list .list-item svg {
+    margin-right: 1rem;
+}
+
+.nav-list .list-item:hover,
+.nav-list .list-item:active {
+    transform: translateX(1rem);
+}
+
+.nav-list .list-item:hover a,
+.nav-list .list-item:active a {
+    color: var(--clr-primary-400);
+}
+
+.nav-list .list-item:hover svg > *,
+.nav-list .list-item:active svg > *{
+    stroke: var(--clr-primary-400);
+}
+
+@media (max-width: 48em) {
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: var(--clr-secondary-200);
+        padding: 1rem 1.5rem 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    .navigation {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 18.5rem;
+        width: 100%;
+        height: 100%;
+        right: -100%;
+        top: 0;
+        background-color: var(--clr-secondary-400);
+        transition: all .5s ease-in-out;
+        /* overflow: hidden; */
+        z-index: 1000;
+    }
+
+    .navigation::after {
+        content: '';
+        position: fixed;
+        background-color: var(-clr-primary-300);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); 
+        z-index: -1; 
+        opacity: 0; 
+        pointer-events: none; 
+        transition: opacity 1s ease-in-out;
+    }
+
+
+
+    .navigation[data-visible] {
+        right: 0;
+    }
+
+    .navigation[data-visible]::after {
+        opacity: 1;
+        pointer-events: auto; 
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+        cursor: pointer;
+        background: transparent;
+        border: 0;
+    }
+
+    
+    .mobile-nav-toggle .icon-close {
+        position: absolute;
+        display: block;
+        right: 3rem;
+        top: 4rem;
+    }
+
+    body.no-scroll {
+        overflow: hidden;
+    }
+}

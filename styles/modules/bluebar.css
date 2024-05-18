@@ -1,0 +1,15 @@
+.bluebar {
+    width: 1.125rem;
+    height: 3rem;
+    background: var(--clr-accent-400);
+    border-radius: var(--border-radius);
+    border: 0;
+    outline: 0;
+}
+
+@media (max-width: 48em) {
+    .bluebar {
+        width: 1rem;
+        height: 2rem;
+    }
+}

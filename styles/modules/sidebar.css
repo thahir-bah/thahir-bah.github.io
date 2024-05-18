@@ -1,0 +1,20 @@
+.sidebar {
+    height: 100vh;
+    position: sticky;
+    top: 0px;
+    background: var(--clr-secondary-300);
+}
+
+
+@media (max-width: 48em) {
+    .sidebar {
+        height: auto;
+        overflow: hidden; 
+    }
+
+    .sidebar .container {
+        padding: 0;
+    }
+
+   
+}

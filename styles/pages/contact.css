@@ -1,0 +1,29 @@
+.message-form input,
+.message-form textarea{
+    border-radius: var(--border-radius);
+    padding: .5rem;
+    background-color: transparent;
+    outline: none;
+    border: var(--border-size) solid var(--border-color);
+    color: var(--clr-primary-400);
+
+}
+
+
+.message-form button {
+    width: fit-content;
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    padding: .5rem 1rem;
+    border-radius: var(--border-radius);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+@media (max-width: 48em) {
+    .contact-information {
+        font-size: var(--fs-500);
+    }
+}

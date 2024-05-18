@@ -1,0 +1,26 @@
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-text {
+    display: block;
+}
+
+@media (max-width: 48em) {
+
+    .logo-text {
+        visibility: hidden;
+    }
+
+    .logo-text::after{
+        content: "TB.";
+        visibility: visible;
+        display: block;
+    }
+
+    .logo-partnership-text {
+        visibility: hidden;
+    }
+}
