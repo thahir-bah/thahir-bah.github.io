@@ -53,6 +53,11 @@
     stroke: var(--clr-primary-400);
 }
 
+.nav-list .list-item:hover svg.setting-icon > *,
+.nav-list .list-item:active svg.setting-icon > * {
+    fill: var(--clr-primary-400);
+}
+
 @media (max-width: 48em) {
 
     .header {

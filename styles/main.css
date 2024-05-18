@@ -94,7 +94,8 @@ a {
     color: var(--clr-primary-400);
 }
 
-svg > *{
+svg > *,
+svg {
     stroke: var(--clr-primary-700);
 }
 
@@ -108,6 +109,10 @@ aside {
 
 footer {
     order: 3;
+}
+
+.setting-icon > * {
+    fill: var(--clr-primary-700);
 }
 
 
