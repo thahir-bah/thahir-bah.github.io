@@ -1,3 +1,6 @@
+.contact-content {
+    grid-template-columns: 1fr;
+}
 .message-form input,
 .message-form textarea{
     border-radius: var(--border-radius);
@@ -25,5 +28,9 @@
 @media (max-width: 48em) {
     .contact-information {
         font-size: var(--fs-500);
+    }
+
+    .contact-content-wrapper {
+        padding: 2rem 1rem;
     }
 }
