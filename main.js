@@ -38,10 +38,13 @@
   };
   navToggle.addEventListener('click', () => setNav(!nav.classList.contains('is-open')));
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setNav(false)));
+  document.querySelector('.nav-scrim').addEventListener('click', () => setNav(false));
+  // drawer only exists below 1100px — reset it when the window grows past that
+  window.matchMedia('(max-width: 1100px)').addEventListener('change', e => { if (!e.matches) setNav(false); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') setNav(false); });
 
   /* ── Active nav link ── */
-  const navLinks = [...nav.querySelectorAll('a')];
+  const navLinks = [...nav.querySelectorAll('ul a')];
   const spy = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -49,6 +52,26 @@
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
   document.querySelectorAll('main section[id]').forEach(s => spy.observe(s));
+
+  /* ── Back to top: appears after scrolling, ring fills with scroll progress ── */
+  const toTop = document.getElementById('to-top');
+  const bar = toTop.querySelector('.bar');
+  let ticking = false;
+  const updateToTop = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const progress = max > 0 ? scrollY / max : 0;
+    toTop.classList.toggle('is-visible', scrollY > innerHeight * .6);
+    bar.style.strokeDashoffset = 100 - progress * 100;
+    ticking = false;
+  };
+  addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(updateToTop); }
+  }, { passive: true });
+  updateToTop();
+  toTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    document.querySelector('.logo-wrap').focus({ preventScroll: true });
+  });
 
   /* ── Reveal on scroll ── */
   const revealer = new IntersectionObserver(entries => {
