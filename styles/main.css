@@ -222,6 +222,7 @@ ul[role="list"], ol[role="list"] { list-style: none; }
 @keyframes lpulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.4)} }
 .logo-text { font-family: var(--f-display); font-weight: 800; font-size: 1.05rem; letter-spacing: .16em; text-transform: uppercase; }
 .logo-text span { color: var(--green); }
+.logo-text .logo-rest { color: inherit; }
 
 .nav ul { display: flex; gap: 4px; }
 .nav a {
@@ -762,6 +763,7 @@ body.pv-open { overflow: hidden; }
 .nav-shell { display: contents; } /* transparent on desktop: the nav stays inline in the top bar */
 @media (max-width: 1100px) {
   .nav-toggle { display: flex; }
+  .logo-text .logo-rest { display: none; } /* THAHIR.BAH → T.BAH */
   /* Screen-sized frame that clips the drawer while it waits off-screen,
      so it never widens the page (mobile browsers would zoom out otherwise) */
   .nav-shell {
